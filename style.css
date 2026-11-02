@@ -86,3 +86,9 @@ button:disabled{opacity:.55;cursor:not-allowed;transform:none}
 
 
 @media(max-width:760px){.header nav{background:var(--primary-navy);border-color:var(--border-on-dark)}}
+
+/* Supplied Mfaro Software logo, preserved with its original transparency. */
+.brand-image{display:block;width:176px;height:92px;object-fit:contain;background:var(--white);border-radius:8px;padding:3px}
+.footer-top .brand-image{width:154px;height:88px}
+.tiny-logo img{display:block;width:42px;height:28px;object-fit:contain;background:var(--white);border-radius:3px}
+@media(max-width:760px){.header .brand-image{width:126px;height:74px}.footer-top .brand-image{width:135px;height:80px}}
