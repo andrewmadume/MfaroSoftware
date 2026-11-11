@@ -214,3 +214,13 @@ dialog p{font-size:1.0625rem;line-height:1.75}
 }
 @media(max-width:360px){.header .brand-image{width:105px}.header .button{gap:6px;padding:9px;font-size:.8125rem}.header{gap:8px;padding:0 16px}}
 
+
+/* Five products stay spacious and readable at each breakpoint. */
+.product-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+.product-card{grid-column:span 2}
+.product-card:nth-child(4){grid-column:2 / span 2}
+.hr-symbol{background:var(--blue-soft);color:var(--professional-blue)}
+.strip-inner{flex-wrap:wrap}
+.strip-inner>div{row-gap:14px}
+@media(max-width:1100px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product-card,.product-card:nth-child(4){grid-column:auto}.product-card:last-child{grid-column:1 / -1}}
+@media(max-width:600px){.product-grid{grid-template-columns:1fr}.product-card,.product-card:nth-child(4),.product-card:last-child{grid-column:auto}}
