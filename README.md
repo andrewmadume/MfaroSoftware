@@ -1,6 +1,6 @@
 # Mfaro Software
 
-Official website for Mfaro Software, featuring MfaroPOS, MfaroInvoice, MfaroEdu, and MfaroForex.
+Official website for Mfaro Software, featuring MfaroPOS, MfaroInvoice, MfaroEdu, MfaroForex, and Mfaro HR & Payroll.
 
 ## Website
 
@@ -22,3 +22,11 @@ In **Settings → Pages**, choose **Deploy from a branch**, select **main** and 
 The project-site address, once Pages is enabled, is `https://andrewmadume.github.io/MfaroSoftware/`.
 
 Product dashboards contain illustrative sample data and are not live product applications.
+
+## Contact page
+
+Visit [Contact Mfaro Software](https://andrewmadume.github.io/MfaroSoftware/contact.html) for email, WhatsApp, and phone links. The contact form validates a maximum combined upload size of 5 MB.
+
+**Automatic submission is not configured yet.** The form displays this clearly and keeps submission disabled until a working backend is connected. API secrets must never be added to browser code.
+
+The prepared server code and provider instructions are in `contact-service/SETUP.txt`. It is not deployed by GitHub Pages. Full messages and attachments are prepared for email; WhatsApp receives a notification and message excerpt. Resend and Twilio accounts, a verified sender, approved WhatsApp template, and a separately hosted public backend are still required.

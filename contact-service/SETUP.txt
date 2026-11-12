@@ -1,0 +1,72 @@
+MFARO SOFTWARE CONTACT DELIVERY — SETUP STILL REQUIRED
+
+Current state
+The contact webpage and direct email, call and WhatsApp links are live after publication.
+Automatic delivery is NOT connected. The form is clearly marked unavailable and its
+submit action stays disabled until a configured public sending endpoint is supplied.
+The upload control checks a 5,000,000-byte COMBINED limit. The prepared server enforces
+the same limit, validates fields, checks consent and restricts file types.
+
+1. Email account
+Create/sign in at https://resend.com/signup . Add and verify a sending domain you own
+(for example mfarosoftware.africa). Add the DNS records Resend supplies; do not replace
+existing mail records blindly. Create a sending API key and set RESEND_API_KEY securely
+on the backend. Set CONTACT_FROM_EMAIL to a verified sender, such as
+Mfaro Software <website@mfarosoftware.africa>. The visitor email is Reply-To.
+Recipient is fixed in code: info@mfarosoftware.africa.
+Documentation: https://resend.com/docs/api-reference/emails/send-email
+
+2. WhatsApp account
+Create/sign in at https://www.twilio.com/try-twilio . Complete WhatsApp Business sender
+registration and any Meta business verification requested by Twilio. Use an approved
+business sender; the destination is whatsapp:+27694676511. The destination and sender
+must be different numbers. The owner of the receiving number must opt in to notifications.
+Review the provider's messaging charges before enabling a paid sender or plan.
+Create an API key and store TWILIO_ACCOUNT_SID, TWILIO_API_KEY, TWILIO_API_SECRET and
+TWILIO_WHATSAPP_FROM as backend secrets. Never paste credentials into chat or source.
+
+In Twilio Content Template Builder, create a text template with these variables and
+request WhatsApp approval. Set its HX... ID as TWILIO_CONTENT_SID after approval.
+Suggested template (subject to provider approval):
+
+New Mfaro Software enquiry {{1}}.
+Name: {{2}}
+Email: {{3}}
+Product: {{4}}
+Subject: {{5}}
+Message: {{6}}
+Attachments: {{7}}. Full enquiry and uploaded files emailed to info@mfarosoftware.africa.
+
+This implementation sends the full form and files by EMAIL. WhatsApp receives the
+reference, name, email, product, subject, up to 600 message characters and file count.
+Phone/company and longer message content are available in the email. Files are not
+sent directly through WhatsApp. Forwarding attachments through WhatsApp additionally
+requires media storage and approved media templates; that is not implemented here.
+An HTTP provider acceptance means queued/accepted, not verified final delivery. Configure
+provider delivery callbacks if delivered/read confirmation is required.
+Documentation: https://www.twilio.com/docs/content/send-templates-created-with-the-content-template-builder
+
+3. Backend hosting
+GitHub Pages serves static files and cannot run the sender. The existing Sites copy
+remains owner-private, so its API must not be used as an anonymous GitHub Pages endpoint.
+Deploy contact-service/worker.mjs as a SEPARATE public Cloudflare Worker (not deployed
+by this change). Bind a D1 database as DB and apply schema.sql before enabling traffic.
+Set all keys in .env.example through the host's secret settings. RATE_LIMIT_SALT should
+be a long random secret. The DB stores only request IDs, hashes and provider acceptance
+states plus salted hourly rate counters; it does not retain names, emails or file data.
+Apply an appropriate retention job to delete old counters and request states, and use
+the host's abuse controls before opening it to high traffic. Do not expose DB bindings
+or credentials to the browser. Keep the existing Sites audience and GitHub repository
+visibility unchanged.
+
+4. Connect and test
+Set window.MFARO_CONTACT.endpoint in dist/contact-config.js to the public HTTPS backend
+endpoint. The sender accepts POST there and GET at endpoint + /status. /status must
+return {"configured":true} before the form enables submission. Republish contact-config.js
+to GitHub Pages and Sites. Allow both website origins in CONTACT_ALLOWED_ORIGINS.
+Send one explicitly authorised test enquiry; verify receipt in both destinations and
+that files arrive in email. Never report delivery as operational before this test.
+
+The local tests use fake provider responses: they verify upload bounds and outgoing
+request construction only. They do not send messages or prove provider connectivity.
+Current account state reported by the owner: neither Resend nor Twilio is set up yet.
