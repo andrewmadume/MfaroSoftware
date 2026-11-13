@@ -65,3 +65,8 @@ menu.onclick=()=>{const open=nav.classList.toggle('open');menu.setAttribute('ari
 nav.querySelectorAll('a').forEach(a=>a.onclick=()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰';});
 document.querySelector('#year').textContent=new Date().getFullYear();
 checkDelivery();
+
+// Development-focus links select the matching enquiry area.
+const enquiryArea=new URLSearchParams(location.search).get('interest');
+const enquiryChoices={business:'Business Management Systems',school:'School Management Software',booking:'Booking and Appointment Systems'};
+if(Object.hasOwn(enquiryChoices,enquiryArea)){document.querySelector('#contact-product').value=enquiryChoices[enquiryArea];}

@@ -301,3 +301,29 @@ a.contact-method:hover strong{color:var(--professional-blue)}
 
 
 @media(min-width:761px) and (max-width:1000px){.header{position:relative;gap:16px}.header nav{display:none;position:absolute;left:20px;right:20px;top:100px;background:var(--white);border:1px solid var(--border-color);padding:24px;z-index:10;border-radius:8px;box-shadow:0 12px 30px var(--shadow-soft)}.header nav.open{display:flex;flex-direction:column;gap:22px}.header .menu-toggle{display:block;border:0;background:none;color:var(--primary-navy);font-size:24px;padding:8px}.header .button{margin-left:auto}}
+
+/* Core development areas, separate from the existing software products. */
+.development-focus{padding-top:80px;padding-bottom:20px}
+.development-focus .section-heading>p{max-width:400px}
+.focus-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.focus-card{display:flex;flex-direction:column;min-width:0;padding:28px;border:1px solid var(--border-color);border-radius:12px;background:var(--white);box-shadow:0 5px 20px var(--shadow-soft);border-top:4px solid var(--professional-blue)}
+.focus-school{border-top-color:var(--emerald-green)}
+.focus-booking{border-top-color:var(--gold-accent)}
+.focus-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.focus-icon{display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:var(--blue-soft);color:var(--professional-blue);font-size:28px}
+.focus-school .focus-icon{background:var(--emerald-soft);color:var(--emerald-action)}
+.focus-booking .focus-icon{background:var(--gold-soft);color:var(--primary-navy)}
+.focus-number{font-size:.75rem;letter-spacing:.6px;color:var(--text-secondary)}
+.focus-card h3{font-size:1.625rem;line-height:1.35;letter-spacing:-.6px;margin-top:24px}
+.focus-card>p{font-size:1rem;line-height:1.75;margin-top:16px}
+.focus-card h4{font-size:.875rem;letter-spacing:.5px;margin:24px 0 12px;color:var(--primary-navy)}
+.focus-card ul{list-style:none;padding:0;margin:0 0 24px}
+.focus-card li{position:relative;padding:9px 0 9px 17px;border-top:1px solid var(--border-color);font-size:1rem;line-height:1.65;color:var(--text-secondary);overflow-wrap:anywhere}
+.focus-card li::before{content:'';position:absolute;left:0;top:20px;width:5px;height:5px;border-radius:50%;background:var(--professional-blue)}
+.focus-school li::before{background:var(--emerald-green)}
+.focus-contact{margin-top:auto;align-items:flex-start;line-height:1.6;justify-content:space-between;gap:12px}
+.focus-contact span{flex-shrink:0}
+.hero-copy>p{max-width:520px}
+@media(max-width:1100px){.focus-grid{gap:16px}.focus-card{padding:24px 20px}.focus-card h3{font-size:1.375rem}}
+@media(max-width:900px){.focus-grid{grid-template-columns:1fr}.focus-card{padding:28px}.focus-card h3{font-size:1.625rem}.focus-card ul{display:grid;grid-template-columns:1fr 1fr;column-gap:24px}.focus-card h3,.focus-card>p{max-width:650px}}
+@media(max-width:600px){.development-focus{padding-top:48px;padding-bottom:0}.focus-card{padding:24px}.focus-card ul{display:block}.focus-card h3{font-size:1.5rem}}
