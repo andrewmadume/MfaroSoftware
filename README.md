@@ -1,6 +1,6 @@
 # Mfaro Software
 
-Official website for Mfaro Software, featuring MfaroPOS, MfaroInvoice, MfaroEdu, MfaroForex, and Mfaro HR & Payroll.
+Official website for Mfaro Software, featuring MfaroInvoice, MfaroPOS, MfaroEdu, MfaroBooking, and MfaroForex.
 
 ## Website
 
