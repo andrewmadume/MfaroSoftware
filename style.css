@@ -329,3 +329,16 @@ a.contact-method:hover strong{color:var(--professional-blue)}
 @media(max-width:600px){.development-focus{padding-top:48px;padding-bottom:0}.focus-card{padding:24px}.focus-card ul{display:block}.focus-card h3{font-size:1.5rem}}
 
 .booking-symbol{background:var(--gold-soft);color:var(--primary-navy)}
+
+/* Social links sit above the white main navigation on every page. */
+.social-bar{background:var(--primary-navy);color:var(--white)}
+.social-bar-inner{max-width:1320px;margin:auto;padding:4px 40px;display:flex;justify-content:flex-end;align-items:center;gap:20px;min-height:44px}
+.social-bar a{display:inline-flex;align-items:center;gap:7px;min-height:36px;font-size:.875rem;font-weight:550;border-radius:4px}
+.social-bar svg{width:20px;height:20px;flex-shrink:0}
+.social-bar a:hover{color:var(--gold-accent)}
+.social-bar a:focus-visible{outline-color:var(--gold-accent);outline-offset:3px}
+.whatsapp-numbers{flex:1;min-width:0}
+.whatsapp-numbers a{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:44px;font-size:1rem;line-height:1.8;color:var(--text-secondary);overflow-wrap:anywhere}
+.whatsapp-numbers a span{color:var(--professional-blue)}
+.whatsapp-numbers a:hover{color:var(--professional-blue);text-decoration:underline;text-underline-offset:4px}
+@media(max-width:760px){.social-bar-inner{padding-left:20px;padding-right:20px;gap:18px}}
